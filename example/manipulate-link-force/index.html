@@ -16,6 +16,7 @@
         .jsonUrl('../datasets/test.json')
         .linkColor(link => link.color ? 'red' : 'green' )
         .linkOpacity(1)
+        .nodeAutoColorBy('group')
         .nodeLabel('id')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(node => {
