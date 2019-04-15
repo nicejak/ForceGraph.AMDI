@@ -10,19 +10,22 @@
   <div id="3d-graph"></div>
 
   <script>
-    // Random tree
-    const N = 10;
-    const gData = {
-      nodes: [...Array(N).keys()].map(i => ({ id: i })),
-      links: [...Array(N).keys()]
-        .filter(id => id)
-        .map(id => ({
-          source: id,
-          target: Math.round(Math.random() * (id-1))
-        }))
-    };
+    const elem = document.getElementById('3d-graph');
     const Graph = ForceGraph3D()
-      (document.getElementById('3d-graph'))
-        .graphData(gData);
+      (elem)
+        .jsonUrl('../datasets/test.json')
+        .nodeLabel('id')
+        .nodeAutoColorBy('group')
+        .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
+        .onNodeClick(node => {
+          // Aim at node from outside it
+          const distance = 40;
+          const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+          Graph.cameraPosition(
+            { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
+            node, // lookAt ({ x, y, z })
+            3000  // ms transition duration
+          );
+        });
   </script>
 </body>
