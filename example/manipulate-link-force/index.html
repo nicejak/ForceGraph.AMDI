@@ -17,7 +17,6 @@
         .linkColor(link => link.color ? 'red' : 'green' )
         .linkOpacity(1)
         .nodeLabel('id')
-        .nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(node => {
           // Aim at node from outside it
