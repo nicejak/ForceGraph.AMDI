@@ -3,7 +3,7 @@
 
   <script src="//unpkg.com/3d-force-graph"></script>
   <!--<script src="../../dist/3d-force-graph.js"></script>-->
-  "heelo"
+  "helo"
 </head>
 
 <body>
@@ -16,7 +16,6 @@
         .jsonUrl('../datasets/test.json')
         .nodeLabel('id')
         .nodeAutoColorBy('group')
-        .linkOpacity(1)
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(node => {
           // Aim at node from outside it
