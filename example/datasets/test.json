@@ -1,7 +1,7 @@
 {
   "nodes": [
     {"id": "Microdochium", "group": 1, "color": 1},
-    {"id": "Occultifur", "group": 2, "color": 2},
+    {"id": "Occultifur", "group": 2, "color": 3},
     {"id": "Xylariales", "group": 4, "color": 2},
     {"id": "Paraconiothyrium", "group": 3, "color": 1}
   ],
