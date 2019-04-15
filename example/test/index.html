@@ -15,6 +15,8 @@
         .jsonUrl('../datasets/test.json')
         .nodeLabel('id')
         .nodeAutoColorBy('group')
+        .linkAutoColorBy(d => gData.nodes[d.source].group)
+        .linkOpacity(0.5)
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(node => {
           // Aim at node from outside it
