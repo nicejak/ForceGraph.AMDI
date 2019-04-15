@@ -10,26 +10,26 @@
   <div id="3d-graph"></div>
 
   <script>
-    // Create Random tree
-    const N = 20;
-    const gData = {
-      nodes: [...Array(N).keys()].map(i => ({ id: i })),
-      links: [...Array(N).keys()]
-        .filter(id => id)
-        .map(id => ({
-          source: id,
-          target: Math.round(Math.random() * (id-1)),
-          color: id % 2
-        }))
-    };
-
+    const elem = document.getElementById('3d-graph');
     const graph = ForceGraph3D()
-      (document.getElementById('3d-graph'))
-        .nodeLabel(node => node.id)
+      (elem)
+        .jsonUrl('../datasets/test.json')
         .linkColor(link => link.color ? 'red' : 'green' )
         .linkOpacity(1)
-        .graphData(gData);
-
+        .nodeLabel('id')
+        .nodeAutoColorBy('group')
+        .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
+        .onNodeClick(node => {
+          // Aim at node from outside it
+          const distance = 40;
+          const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+          Graph.cameraPosition(
+            { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
+            node, // lookAt ({ x, y, z })
+            3000  // ms transition duration
+          );
+        });
+     
     const linkForce = graph
       .d3Force('link')
       .distance(link => link.color ? settings.redDistance : settings.greenDistance);
