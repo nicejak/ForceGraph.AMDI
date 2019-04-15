@@ -8,6 +8,6 @@
   "links": [
     {"source": "Microdochium", "target": "Occultifur", "value": 1},
     {"source": "Xylariales", "target": "Occultifur", "value": 8},
-    {"source": "Xylariales", "target": "Paraconiothyrium", "value": 10},
+    {"source": "Xylariales", "target": "Paraconiothyrium", "value": 100},
   ]
 }
