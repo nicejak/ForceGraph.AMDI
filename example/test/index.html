@@ -15,7 +15,7 @@
         .jsonUrl('../datasets/test.json')
         .nodeLabel('id')
         .nodeAutoColorBy('group')
-        .linkAutoColorBy(d => gData.nodes[d.source].group)
+        .linkAutoColorBy('group')
         .linkOpacity(0.5)
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(node => {
