@@ -1,13 +1,13 @@
 {
   "nodes": [
-    {"id": "Microdochium", "group": 1, "val": 100},
+    {"id": "Microdochium", "group": 1},
     {"id": "Occultifur", "group": 2},
     {"id": "Xylariales", "group": 4},
     {"id": "Paraconiothyrium", "group": 3}
   ],
   "links": [
-    {"source": "Microdochium", "target": "Occultifur", "value": 1},
+    {"source": "Microdochium", "target": "Occultifur", "value": 3.78},
     {"source": "Xylariales", "target": "Occultifur", "value": 8},
-    {"source": "Xylariales", "target": "Paraconiothyrium", "value": 100}
+    {"source": "Xylariales", "target": "Paraconiothyrium", "value": 1000}
   ]
 }
