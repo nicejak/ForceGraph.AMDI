@@ -3,7 +3,7 @@
 
   <script src="//unpkg.com/3d-force-graph"></script>
   <!--<script src="../../dist/3d-force-graph.js"></script>-->
-  "helo"
+  "heo"
 </head>
 
 <body>
@@ -14,6 +14,7 @@
     const Graph = ForceGraph3D()
       (elem)
         .jsonUrl('../datasets/test.json')
+        .linkOpacity(1)
         .nodeLabel('id')
         .nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
