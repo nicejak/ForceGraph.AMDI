@@ -1,0 +1,53 @@
+﻿{
+  "nodes": [
+    {
+      "id": "id1",
+      "name": "Microdochium",
+      "group": "1"
+    },
+    {
+      "id": "id2",
+      "name": "Occultifur",
+      "group": "2"
+    },
+    {
+      "id": "id3",
+      "name": "Cyphellophora",
+      "group": "2"
+    },
+    {
+      "id": "id4",
+      "name": "Paraconiothyrium",
+      "group": "3"
+    },
+    {
+      "id": "id5",
+      "name": "Xylariales",
+      "group": "4"
+    }
+
+  ],
+  "links": [
+    {
+      "source": "id1",
+      "target": "id2",
+      "value" :  1
+    },
+    {
+      "source": "id2",
+      "target": "id3",
+      "value": 8
+    },
+    {
+      "source": "id3",
+      "target": "id4",
+      "value": 20
+    },
+    {
+      "source": "id4",
+      "target": "id5",
+      "value": 35
+    }
+
+  ]
+}
