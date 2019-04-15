@@ -6,8 +6,8 @@
     {"id": "Paraconiothyrium", "group": 3}
   ],
   "links": [
-    {"source": "Microdochium", "target": "Occultifur", "value": 1, "color": 1},
-    {"source": "Xylariales", "target": "Occultifur", "value": 8, "color": 2},
-    {"source": "Xylariales", "target": "Paraconiothyrium", "value": 100, "color": 1}
+    {"source": "Microdochium", "target": "Occultifur", "value": 1},
+    {"source": "Xylariales", "target": "Occultifur", "value": 8},
+    {"source": "Xylariales", "target": "Paraconiothyrium", "value": 100}
   ]
 }
