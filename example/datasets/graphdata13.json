@@ -253,8 +253,8 @@
 {"id": "100540", "group": 1}, 
 {"id": "100541", "group": 1}, 
 {"id": "100542", "group": 1}, 
-{"id": "100543", "group": 3}, 
-] 
+{"id": "100543", "group": 3} 
+], 
 "links":[
 {"source": "100181", "target": "100193", "value": 1},
 {"source": "100181", "target": "100197", "value": 1},
@@ -371,6 +371,6 @@
 {"source": "100426", "target": "100458", "value": 1},
 {"source": "100438", "target": "100458", "value": 1},
 {"source": "100438", "target": "100518", "value": 1},
-{"source": "100458", "target": "100518", "value": 1},
+{"source": "100458", "target": "100518", "value": 1}
 ]
 }
