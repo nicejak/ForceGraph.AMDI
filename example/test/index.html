@@ -37,7 +37,7 @@ hello
     const settings = new Settings();
     const gui = new dat.GUI();
     
-    const controllerOne = gui.add(settings, 'threshold', 0, 15);
+    const controllerOne = gui.add(settings, 'threshold', 0, 15, 1);
     
     controllerOne.onChange(updateThreshold);
          
