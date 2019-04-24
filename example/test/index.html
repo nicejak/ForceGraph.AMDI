@@ -38,14 +38,27 @@ hello
     const settings = new Settings();
     const gui = new dat.GUI();
     
-    const controllerOne = gui.add(settings, 'redDistance', 0, 15);
-    const controllerTwo = gui.add(settings, 'greenDistance', 0, 15);
+    const controllerOne = gui.add(settings, 'threshold', 0, 15);
     
     controllerOne.onChange(updateThreshold);
-    controllerTwo.onChange(updateThreshold);
          
     function updateThreshold() {
-      Graph.jsonUrl('../datasets/graphdata14.json');
+      
+      if (settings.threshold == 8) {
+      Graph.jsonUrl('../datasets/graphdata8.json');
+      }
+      if (settings.threshold == 10) {
+      Graph.jsonUrl('../datasets/graphdata10.json');
+      }
+      else if (settings.threshold == 12) {
+        Graph.jsonUrl('../datasets/graphdata12.json');
+      }
+      else if (settings.threshold == 13) {
+        Graph.jsonUrl('../datasets/graphdata13.json');
+      }
+      else if (settings.threshold == 14) {
+        Graph.jsonUrl('../datasets/graphdata14.json');
+      }
     }
           
   );
