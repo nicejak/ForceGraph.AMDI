@@ -20,7 +20,7 @@
     const Graph = ForceGraph3D()
       (elem)
         .jsonUrl('../datasets/graphdata1.json')
-        .linkOpacity(0.7)
+        .linkOpacity(0.3)
         .nodeLabel('id')
         .nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
@@ -37,7 +37,7 @@
     
      const linkForce = Graph
       .d3Force('link')
-      .distance(link => (link.value * 1000));
+      .distance(link => (link.value * 100));
     
     
      //Define GUI
