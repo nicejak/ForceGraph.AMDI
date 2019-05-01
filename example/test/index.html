@@ -22,7 +22,7 @@
         .jsonUrl('../datasets/graphdata1.json')
         .linkOpacity(0.05)
         .nodeLabel('id')
-        .nodeColor(node => node.group ? 'red' : 'green')
+        .nodeColor(node => node.group ? 'red' : 'green' : 'blue' : 'gray')
         //.nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
