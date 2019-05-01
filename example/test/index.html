@@ -21,7 +21,6 @@
       (elem)
         .jsonUrl('../datasets/graphdata1.json')
         .linkOpacity(0.05)
-        .d3Force('link')
         .nodeLabel('id')
         .nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
@@ -29,13 +28,13 @@
           // Aim at node from outside it
           const distance = 100;
           const distRatio = 1 + distance/Math.hypot(node.x, node.y, node.z);
+          Graph.linkColor(link => link.color = green);
           Graph.cameraPosition(
             { x: node.x * distRatio, y: node.y * distRatio, z: node.z * distRatio }, // new position
             node, // lookAt ({ x, y, z })
             3000  // ms transition duration
           );
-          };
-          link => link.color = ʻredʻ;
+          }
          );
     
      const linkForce = Graph
