@@ -44,10 +44,12 @@
     const gui = new dat.GUI();
     
     const controllerOne = gui.add(settings, 'threshold', 0, 15, 1);
+    const cont = gui.add(settings, 'test', 0, 15, 1);
     
     controllerOne.onChange(updateThreshold);
          
     function updateThreshold() {
+      linkForce.distance(link == (link.value + 10));
       
       if (settings.threshold == 8) {
       Graph.jsonUrl('../datasets/graphdata8.json');
