@@ -25,7 +25,6 @@
         .nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
-          Graph.linkColor(link => link.color = 'green' );
           node => {
           // Aim at node from outside it
           const distance = 40;
