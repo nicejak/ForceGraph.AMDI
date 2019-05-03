@@ -46,7 +46,7 @@
           if (highlightLink === link) return;
           highlightLink = link;
           highlightNodes = link ? [link.source, link.target] : [];
-         // updateThreshold();
+          updateGeometries();
         });
      
     
@@ -66,6 +66,10 @@
     const controllerOne = gui.add(settings, 'similarity', 0, 15, 1);
   
     controllerOne.onChange(updateThreshold);
+    
+     function updateGeometries() {
+      Graph.nodeRelSize(4); // trigger update of 3d objects in scene
+    }
          
     function updateThreshold() {
       
