@@ -44,13 +44,13 @@
     
      //Define GUI
     const Settings = function() {
-      this.threshold = 1;
+      this.similarity = 1;
     };
     
     const settings = new Settings();
     const gui = new dat.GUI();
     
-    const controllerOne = gui.add(settings, 'threshold', 0, 15, 1);
+    const controllerOne = gui.add(settings, 'similarity', 0, 15, 1);
   
     controllerOne.onChange(updateThreshold);
          
