@@ -83,7 +83,14 @@
     
     function eliminateNodes() {
       if (settings.animal == false) {
-        
+        //foreach (node.group == 1) {
+        node => {
+          if (node.group == 1) { 
+              selectedNodes.push(node); 
+          }
+           
+        }
+          //}
       }
       if (settings.plant == false) {
       Graph.jsonUrl('../datasets/graphdata1.json');
