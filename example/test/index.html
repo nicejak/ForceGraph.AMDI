@@ -90,13 +90,19 @@
         }
       }
       if (settings.plant == false) {
+        for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 0) {removeNode (n)}});
+        }
       }
       if (settings.fungi == false) {
+        for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 2) {removeNode (n)}});
+        }
       }
       else if (settings.other == false) {
+        for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
+        }
       }
     
     }
