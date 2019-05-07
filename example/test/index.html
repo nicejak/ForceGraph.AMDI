@@ -76,52 +76,29 @@
     const controllerFive = gui.add(settings, 'other');
   
     controllerOne.onChange(updateThreshold);
-    controllerTwo.onChange(eliminateNodes);
-    controllerThree.onChange(eliminateNodes);
-    controllerFour.onChange(eliminateNodes);
-    controllerFive.onChange(eliminateNodes);
+    controllerTwo.onChange(presentNodes);
+    controllerThree.onChange(presentNodes);
+    controllerFour.onChange(presentNodes);
+    controllerFive.onChange(presentNodes);
     
-    function eliminateNodes() {
-      let { nodes, links } = Graph.graphData();
-      
-      if (settings.animal == false) {
-        for (i = 0; i < 5; i++) {
-          nodes.forEach ((n, idx) => {if (n.group == 1) {removeNode (n)}});
-        }
-      }
-      else if (settings.plant == false) {
-        for (i = 0; i < 5; i++) {
-        nodes.forEach ((n, idx) => {if (n.group == 0) {removeNode (n)}});
-        }
-      }
-      else if (settings.fungi == false) {
-        for (i = 0; i < 5; i++) {
-        nodes.forEach ((n, idx) => {if (n.group == 2) {removeNode (n)}});
-        }
-      }
-      else if (settings.other == false) {
-        for (i = 0; i < 5; i++) {
-        nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
-        }
-      }
-      
-    else if (settings.animal == true) {
-        updateThresholdN(); 
-        recheckFalseNodes();
-      }
-      else if (settings.plant == true) {
-        updateThresholdN(); 
-        recheckFalseNodes();
-      }
-      else if (settings.fungi == true) {
-        updateThresholdN(); 
-        recheckFalseNodes();
-      }
-      else if (settings.other == true) {
-        updateThresholdN(); 
-        recheckFalseNodes();
-      }
     
+    function presentNodes () {
+      if (settings.animal == true) {
+        updateThresholdN(); 
+        recheckFalseNodes();
+      }
+      if (settings.plant == true) {
+        updateThresholdN(); 
+        recheckFalseNodes();
+      }
+      if (settings.fungi == true) {
+        updateThresholdN(); 
+        recheckFalseNodes();
+      }
+      if (settings.other == true) {
+        updateThresholdN(); 
+        recheckFalseNodes();
+      }
     }
     
     function recheckFalseNodes() {
