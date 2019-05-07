@@ -106,18 +106,47 @@
       }
       
       if (settings.animal == true) {
-        updateThreshold(); 
+        updateThresholdN(); 
+        recheckFalseNodes();
       }
       if (settings.plant == true) {
-       
+        updateThresholdN(); 
+        recheckFalseNodes();
       }
       if (settings.fungi == true) {
-        
+        updateThresholdN(); 
+        recheckFalseNodes();
       }
       else if (settings.other == true) {
-        
+        updateThresholdN(); 
+        recheckFalseNodes();
       }
     
+    }
+    
+    function recheckFalseNodes() {
+    let { nodes, links } = Graph.graphData();
+      
+      if (settings.animal == false) {
+        for (i = 0; i < 5; i++) {
+          nodes.forEach ((n, idx) => {if (n.group == 1) {removeNode (n)}});
+        }
+      }
+      if (settings.plant == false) {
+        for (i = 0; i < 5; i++) {
+        nodes.forEach ((n, idx) => {if (n.group == 0) {removeNode (n)}});
+        }
+      }
+      if (settings.fungi == false) {
+        for (i = 0; i < 5; i++) {
+        nodes.forEach ((n, idx) => {if (n.group == 2) {removeNode (n)}});
+        }
+      }
+      else if (settings.other == false) {
+        for (i = 0; i < 5; i++) {
+        nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
+        }
+      }
     }
     
     function removeNode(node) {
@@ -157,6 +186,33 @@
         Graph.jsonUrl('../datasets/graphdata15.json');
       }
     }
+    
+    function updateThresholdN() {
+
+      if (settings.similarity == 8) {
+      Graph.jsonUrl('../datasets/graphdata8.json');
+      }
+      if (settings.similarity == 1) {
+      Graph.jsonUrl('../datasets/graphdata1.json');
+      }
+      if (settings.similarity == 10) {
+      Graph.jsonUrl('../datasets/graphdata10.json');
+      }
+      else if (settings.similarity == 12) {
+        Graph.jsonUrl('../datasets/graphdata12.json');
+      }
+      else if (settings.similarity == 13) {
+        Graph.jsonUrl('../datasets/graphdata13.json');
+      }
+      else if (settings.similarity == 14) {
+        Graph.jsonUrl('../datasets/graphdata14.json');
+      }
+      else if (settings.similarity == 15) {
+        Graph.jsonUrl('../datasets/graphdata15.json');
+      }
+    }
+    
+    
   </script>
   
 </body>
