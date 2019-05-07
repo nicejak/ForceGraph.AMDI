@@ -117,11 +117,8 @@
          
     function updateThreshold() {
       
-      Settings.animal = true; 
-      settings.plant = true;
-      settings.fungi = true;
-      settings.other = true;
-      
+      gui.__controllers[1].setValue(false);
+
       if (settings.similarity == 8) {
       Graph.jsonUrl('../datasets/graphdata8.json');
       }
