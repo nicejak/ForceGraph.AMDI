@@ -99,7 +99,7 @@
         nodes.forEach ((n, idx) => {if (n.group == 2) {removeNode (n)}});
         }
       }
-      else if (settings.other == false) {
+      if (settings.other == false) {
         for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
         }
@@ -109,11 +109,11 @@
         updateThresholdN(); 
         recheckFalseNodes();
       }
-      if (settings.plant == true) {
+      else if (settings.plant == true) {
         updateThresholdN(); 
         recheckFalseNodes();
       }
-      if (settings.fungi == true) {
+      else if (settings.fungi == true) {
         updateThresholdN(); 
         recheckFalseNodes();
       }
@@ -142,7 +142,7 @@
         nodes.forEach ((n, idx) => {if (n.group == 2) {removeNode (n)}});
         }
       }
-      else if (settings.other == false) {
+      if (settings.other == false) {
         for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
         }
