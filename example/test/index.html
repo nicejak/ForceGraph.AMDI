@@ -86,6 +86,8 @@
       
       if (settings.animal == false) {
         nodes.forEach ((n, idx) => {if (n.group == 1) {removeNode (n)}});
+        nodes.forEach((n, idx) => { n.id = idx; }); // Reset node ids to array index
+        Graph.graphData({ nodes, links });
       }
       if (settings.plant == false) {
         nodes.forEach ((n, idx) => {if (n.group == 0) {removeNode (n)}});
@@ -102,10 +104,7 @@
     function removeNode(node) {
       let { nodes, links } = Graph.graphData();
       links = links.filter(l => l.source !== node && l.target !== node); // Remove links attached to node
-      //nodes.splice(node.id, 1); // Remove node
-      //nodes.forEach((n, idx) => { n.id = idx; }); // Reset node ids to array index
-      nodes.pop(node);
-      Graph.graphData({ nodes, links });
+      nodes.splice(node.id, 1); // Remove node
     }
          
     function updateThreshold() {
