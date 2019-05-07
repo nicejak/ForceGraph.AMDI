@@ -48,26 +48,32 @@
           highlightNodes = link ? [link.source, link.target] : [];
           updateGeometries();
         });
+    
     function updateGeometries() {
       Graph.nodeRelSize(4); // trigger update of 3d objects in scene
     }
       
-     
-    
      const linkForce = Graph
       .d3Force('link')
-      .distance(link => (link.value * 100));
-    
+      .distance(link => (link.value * 100)); // scales the link distances from value
     
      //Define GUI
     const Settings = function() {
       this.similarity = 1;
+      this.animal = false;
+      this.plant = false;
+      this.fungi = false;
+      this.other = false;
     };
     
     const settings = new Settings();
     const gui = new dat.GUI();
     
     const controllerOne = gui.add(settings, 'similarity', 0, 15, 1);
+    const controllerTwo = gui.add(settings, 'animal');
+    const controllerTwo = gui.add(settings, 'plant');
+    const controllerTwo = gui.add(settings, 'fungi');
+    const controllerTwo = gui.add(settings, 'other');
   
     controllerOne.onChange(updateThreshold);
     
