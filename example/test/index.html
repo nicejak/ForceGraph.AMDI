@@ -105,6 +105,7 @@
       nodes.splice(node.id, 1); // Remove node
       nodes.forEach((n, idx) => { n.id = idx; }); // Reset node ids to array index
       Graph.graphData({ nodes, links });
+      updateGeometries()
     }
          
     function updateThreshold() {
