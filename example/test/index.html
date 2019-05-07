@@ -76,7 +76,34 @@
     const controllerFive = gui.add(settings, 'other');
   
     controllerOne.onChange(updateThreshold);
+    controllerTwo.onChange(eliminateNodes);
+    controllerThree.onChange(eliminateNodes);
+    controllerFour.onChange(eliminateNodes);
+    controllerFive.onChange(eliminateNodes);
     
+    function eliminateNodes() {
+      if (settings.animal == false) {
+        foreach (node.group == 1) {removeNode}
+      }
+      if (settings.plant == false) {
+      Graph.jsonUrl('../datasets/graphdata1.json');
+      }
+      if (settings.fungi == false) {
+      Graph.jsonUrl('../datasets/graphdata10.json');
+      }
+      else if (settings.other == false) {
+        Graph.jsonUrl('../datasets/graphdata12.json');
+      }
+    
+    }
+    
+    function removeNode(node) {
+      let { nodes, links } = Graph.graphData();
+      links = links.filter(l => l.source !== node && l.target !== node); // Remove links attached to node
+      nodes.splice(node.id, 1); // Remove node
+      nodes.forEach((n, idx) => { n.id = idx; }); // Reset node ids to array index
+      Graph.graphData({ nodes, links });
+    }
          
     function updateThreshold() {
       
