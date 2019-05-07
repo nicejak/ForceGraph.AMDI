@@ -76,6 +76,7 @@
     const controllerFive = gui.add(settings, 'other');
   
     controllerOne.onChange(updateThreshold);
+    controllerTwo.onChange(eliminateNodes);
     controllerThree.onChange(eliminateNodes);
     controllerFour.onChange(eliminateNodes);
     controllerFive.onChange(eliminateNodes);
