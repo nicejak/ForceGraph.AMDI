@@ -21,7 +21,7 @@
 
     const Graph = ForceGraph3D()
       (elem)
-        .jsonUrl('../datasets/newdata/graphdata14.json')
+        .jsonUrl('../datasets/newdata/graphdata1.json')
         .linkOpacity(0.05)
         .linkWidth(link => link === highlightLink ? 4 : 1)
         .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
@@ -69,7 +69,7 @@
     const settings = new Settings();
     const gui = new dat.GUI();
     
-    const controllerOne = gui.add(settings, 'similarity', 1, 14, 14);
+    const controllerOne = gui.add(settings, 'similarity', 1, 14, 1);
     const controllerTwo = gui.add(settings, 'animal');
     const controllerThree = gui.add(settings, 'plant');
     const controllerFour = gui.add(settings, 'fungi');
