@@ -89,23 +89,23 @@
           nodes.forEach ((n, idx) => {if (n.group == 1) {removeNode (n)}});
         }
       }
-      if (settings.plant == false) {
+      else if (settings.plant == false) {
         for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 0) {removeNode (n)}});
         }
       }
-      if (settings.fungi == false) {
+      else if (settings.fungi == false) {
         for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 2) {removeNode (n)}});
         }
       }
-      if (settings.other == false) {
+      else if (settings.other == false) {
         for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
         }
       }
       
-      if (settings.animal == true) {
+      else if (settings.animal == true) {
         updateThresholdN(); 
         recheckFalseNodes();
       }
@@ -132,17 +132,17 @@
           nodes.forEach ((n, idx) => {if (n.group == 1) {removeNode (n)}});
         }
       }
-      if (settings.plant == false) {
+      else if (settings.plant == false) {
         for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 0) {removeNode (n)}});
         }
       }
-      if (settings.fungi == false) {
+      else if (settings.fungi == false) {
         for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 2) {removeNode (n)}});
         }
       }
-      if (settings.other == false) {
+      else if (settings.other == false) {
         for (i = 0; i < 5; i++) {
         nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
         }
@@ -167,10 +167,10 @@
       if (settings.similarity == 8) {
       Graph.jsonUrl('../datasets/graphdata8.json');
       }
-      if (settings.similarity == 1) {
+      else if (settings.similarity == 1) {
       Graph.jsonUrl('../datasets/graphdata1.json');
       }
-      if (settings.similarity == 10) {
+      else if (settings.similarity == 10) {
       Graph.jsonUrl('../datasets/graphdata10.json');
       }
       else if (settings.similarity == 12) {
@@ -192,10 +192,10 @@
       if (settings.similarity == 8) {
       Graph.jsonUrl('../datasets/graphdata8.json');
       }
-      if (settings.similarity == 1) {
+      else if (settings.similarity == 1) {
       Graph.jsonUrl('../datasets/graphdata1.json');
       }
-      if (settings.similarity == 10) {
+      else if (settings.similarity == 10) {
       Graph.jsonUrl('../datasets/graphdata10.json');
       }
       else if (settings.similarity == 12) {
