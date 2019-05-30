@@ -27,7 +27,7 @@
         .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
         .linkDirectionalParticleWidth(4)
         .nodeLabel('id')
-        .nodeColor(node => (node.group == 0) ? 'green' : (node.group == 1) ? 'purple' : (node.group == 2) ? 'blue' : 'gray') 
+        .nodeColor(node => (node.group == 0) ? 'orange' : (node.group == 1) ? 'purple' : (node.group == 2) ? 'blue' : 'gray') 
         //.nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
