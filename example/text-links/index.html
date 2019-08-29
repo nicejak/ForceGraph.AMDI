@@ -14,7 +14,7 @@
   <script>
     const Graph = ForceGraph3D()
       (document.getElementById('3d-graph'))
-        .jsonUrl('../datasets/miserables.json')
+        .jsonUrl('../datasets/newdata/graphdata1.json')
         .nodeLabel('id')
         .nodeAutoColorBy('group')
         .linkThreeObject(link => {
@@ -29,7 +29,7 @@
           );
 
           // add text sprite as child
-          const sprite = new SpriteText(`${link.source} > ${link.target}`);
+          const sprite = new SpriteText(`${link.value}`);
           sprite.color = 'lightgrey';
           sprite.textHeight = 1.5;
           lineObj.add(sprite);
