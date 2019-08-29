@@ -24,12 +24,32 @@
     const Graph = ForceGraph3D()
       (elem)
         .jsonUrl('../datasets/newdata/graphdata1.json')
+    
+    /*
         .linkOpacity(0.05)
         .linkWidth(link => link === highlightLink ? 4 : 1)
         .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
         .linkDirectionalParticleWidth(4)
+    */
         .nodeLabel('id')
         .nodeAutoColorBy('group')
+        .linkThreeObjectExtend(true)
+        
+        .linkThreeObject(link => {
+          // extend link with text sprite
+          const sprite = new SpriteText(`${link.source} > ${link.target}`);
+          sprite.color = 'lightgrey';
+          sprite.textHeight = 1.5;
+          return sprite;
+        })
+        .linkPositionUpdate((sprite, { start, end }) => {
+          const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
+            [c]: start[c] + (end[c] - start[c]) / 2 // calc middle point
+          })));
+          // Position sprite
+          Object.assign(sprite.position, middlePos);
+        });
+    
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
           node => {
@@ -51,42 +71,17 @@
           highlightNodes = link ? [link.source, link.target] : [];
           updateGeometries();
         });
-    */
-    /*
-          // create line object
-          const lineObj = new THREE.Line(
-            new THREE.BufferGeometry(),
-            new THREE.MeshLambertMaterial({
-              color: '#f0f0f0',
-              transparent: true,
-              opacity: 0.2
-            })
-          );
-    
-          // add text sprite as child
-          const sprite = new SpriteText(`${link.value}`);
-          sprite.color = 'lightgrey';
-          sprite.textHeight = 1.5;
-          lineObj.add(sprite);
-          return lineObj;
-        })
-      .linkPositionUpdate((obj, { start, end }) => {
-        const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
-          [c]: start[c] + (end[c] - start[c]) / 2 // calc middle point
-        })));
-        const textSprite = obj.children[0];
-        // Position link text
-        Object.assign(textSprite.position, middlePos);
-     }
-    */
     
     function updateGeometries() {
       Graph.nodeRelSize(4); // trigger update of 3d objects in scene
     }
+    */
       
+    /*
      const linkForce = Graph
       .d3Force('link')
       .distance(link => (link.value * 100)); // scales the link distances from value
+    */
     
     //Attempt to add the health score (based on json file WIP)
     const healthscore = (health_score.id);
