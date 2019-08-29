@@ -12,10 +12,10 @@
   </div>
 
   <script>
-     //<font color="white"> 1 = Animal    </font>
-     // <font color="white">0 =  Plant   </font>
-     // <font color="white">3 = Other     </font>
-     //  <font color="white">2 = Fungus  </font>
+     // <font color="white"> 1 = Animal </font>
+     // <font color="white">0 =  Plant </font>
+     // <font color="white">3 = Other </font>
+     // <font color="white">2 = Fungus </font>
 
     const elem = document.getElementById('3d-graph');
     
@@ -29,8 +29,7 @@
         .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
         .linkDirectionalParticleWidth(4)
         .nodeLabel('id')
-        .nodeColor(node => (node.group == 0) ? '#009E73' : (node.group == 1) ? '#0072B2' : (node.group == 2) ? '#E69F00' : 'gray') 
-        //.nodeAutoColorBy('group')
+        .nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
           node => {
