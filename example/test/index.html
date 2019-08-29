@@ -66,7 +66,7 @@
           sprite.textHeight = 1.5;
           lineObj.add(sprite);
           return lineObj;
-        })
+ 
       .linkPositionUpdate((obj, { start, end }) => {
         const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
           [c]: start[c] + (end[c] - start[c]) / 2 // calc middle point
