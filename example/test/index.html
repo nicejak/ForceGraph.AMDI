@@ -88,7 +88,7 @@
      //Define GUI
     const Settings = function() {
       this.disimilarity = 1;
-      this.animal = true;
+      this.animal = "some health score";
       this.plant = true;
       this.fungi = true;
       this.other = true;
@@ -99,7 +99,7 @@
     const gui = new dat.GUI();
     
     const controllerOne = gui.add(settings, 'disimilarity', 1, 14, 1);
-    // const controllerTwo = gui.add(settings, 'animal');
+    const controllerTwo = gui.add(settings, 'animal');
     // const controllerThree = gui.add(settings, 'plant');
     // const controllerFour = gui.add(settings, 'fungi');
     // const controllerFive = gui.add(settings, 'other');
