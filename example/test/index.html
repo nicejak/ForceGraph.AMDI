@@ -152,6 +152,7 @@
       }
     }
     
+    */
     function removeNode(node) {
       let { nodes, links } = Graph.graphData();
       links = links.filter(l => l.source !== node && l.target !== node); // Remove links attached to node
@@ -166,7 +167,7 @@
       // gui.__controllers[2].setValue(true);
       // gui.__controllers[3].setValue(true);
       // gui.__controllers[4].setValue(true);
-    */
+    
     
       if (settings.disimilarity == 1) {
       Graph.jsonUrl('../datasets/newdata/graphdata1.json');
@@ -212,7 +213,6 @@
       }
     }
     
-    /*
     function updateThresholdN() {
 
       if (settings.disimilarity == 1) {
@@ -258,7 +258,6 @@
         Graph.jsonUrl('../datasets/newdata/graphdata14.json');
       }
     }
-    */
     
   </script>
 
