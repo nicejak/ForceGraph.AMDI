@@ -150,9 +150,9 @@
         nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
         }
       }
+      */
     }
     
-    */
     function removeNode(node) {
       let { nodes, links } = Graph.graphData();
       links = links.filter(l => l.source !== node && l.target !== node); // Remove links attached to node
