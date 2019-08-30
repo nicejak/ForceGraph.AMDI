@@ -37,6 +37,8 @@
     */
         .nodeLabel('id')
         .nodeAutoColorBy('group')
+    
+    /*
         .linkThreeObjectExtend(true)
         
         .linkThreeObject(link => {
@@ -54,6 +56,7 @@
           // Position sprite
           Object.assign(sprite.position, middlePos);
         });
+    */
     
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
