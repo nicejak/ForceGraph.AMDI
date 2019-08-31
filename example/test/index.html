@@ -57,6 +57,10 @@
           Object.assign(sprite.position, middlePos);
         });
     
+      // Spread nodes a little wider
+      Graph.d3Force('charge').strength(-120);
+      
+    /*
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
           node => {
@@ -69,7 +73,7 @@
             3000  // ms transition duration
           );
           })
-     
+     */
     /*
     .onLinkHover(link => {
           // no state change
