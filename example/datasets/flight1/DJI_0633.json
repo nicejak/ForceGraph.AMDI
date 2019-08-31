@@ -1,0 +1,23 @@
+{
+"nodes": [
+{"id": "0", "group": 0}, 
+{"id": "1", "group": 0}, 
+{"id": "2", "group": 0}, 
+{"id": "3", "group": 0}
+], 
+"links": [
+{"source": "0", "target": "1", "value": 0.4662674510045392}, 
+{"source": "0", "target": "2", "value": 0.660285814252904}, 
+{"source": "0", "target": "3", "value": 0.7429338295020563}, 
+{"source": "1", "target": "0", "value": 0.4662674510045392}, 
+{"source": "1", "target": "2", "value": 0.2942430925687621}, 
+{"source": "1", "target": "3", "value": 0.4113929499333323}, 
+{"source": "2", "target": "0", "value": 0.660285814252904}, 
+{"source": "2", "target": "1", "value": 0.2942430925687621}, 
+{"source": "2", "target": "3", "value": 0.12128997732269395}, 
+{"source": "3", "target": "0", "value": 0.7429338295020563}, 
+{"source": "3", "target": "1", "value": 0.4113929499333323}, 
+{"source": "3", "target": "2", "value": 0.12128997732269395}
+], 
+"health_score": 1.7642154090909634
+}

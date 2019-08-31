@@ -1,0 +1,43 @@
+{
+"nodes": [
+{"id": "0", "group": 0}, 
+{"id": "1", "group": 0}, 
+{"id": "2", "group": 0}, 
+{"id": "3", "group": 0}, 
+{"id": "4", "group": 0}, 
+{"id": "5", "group": 0}
+], 
+"links": [
+{"source": "0", "target": "1", "value": 0.5689831901329029}, 
+{"source": "0", "target": "2", "value": 0.3333056850753692}, 
+{"source": "0", "target": "3", "value": 0.45437766779462097}, 
+{"source": "0", "target": "4", "value": 0.07640970533351692}, 
+{"source": "0", "target": "5", "value": 0.2759942215268493}, 
+{"source": "1", "target": "0", "value": 0.5689831901329029}, 
+{"source": "1", "target": "2", "value": 0.5363457124473653}, 
+{"source": "1", "target": "3", "value": 0.3793666014686052}, 
+{"source": "1", "target": "4", "value": 0.6192453190390728}, 
+{"source": "1", "target": "5", "value": 0.29390040397824035}, 
+{"source": "2", "target": "0", "value": 0.3333056850753692}, 
+{"source": "2", "target": "1", "value": 0.5363457124473653}, 
+{"source": "2", "target": "3", "value": 0.17374867010475906}, 
+{"source": "2", "target": "4", "value": 0.3038659614975718}, 
+{"source": "2", "target": "5", "value": 0.27009237892626464}, 
+{"source": "3", "target": "0", "value": 0.45437766779462097}, 
+{"source": "3", "target": "1", "value": 0.3793666014686052}, 
+{"source": "3", "target": "2", "value": 0.17374867010475906}, 
+{"source": "3", "target": "4", "value": 0.4482123467715637}, 
+{"source": "3", "target": "5", "value": 0.21972763600622666}, 
+{"source": "4", "target": "0", "value": 0.07640970533351692}, 
+{"source": "4", "target": "1", "value": 0.6192453190390728}, 
+{"source": "4", "target": "2", "value": 0.3038659614975718}, 
+{"source": "4", "target": "3", "value": 0.4482123467715637}, 
+{"source": "4", "target": "5", "value": 0.3000144550257652}, 
+{"source": "5", "target": "0", "value": 0.2759942215268493}, 
+{"source": "5", "target": "1", "value": 0.29390040397824035}, 
+{"source": "5", "target": "2", "value": 0.27009237892626464}, 
+{"source": "5", "target": "3", "value": 0.21972763600622666}, 
+{"source": "5", "target": "4", "value": 0.3000144550257652}
+], 
+"health_score": 2.0507508090211712
+}
