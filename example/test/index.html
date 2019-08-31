@@ -27,7 +27,7 @@
 
     const Graph = ForceGraph3D()
       (elem)
-        .jsonUrl('../datasets/newdata/flight12.json')
+        .jsonUrl('../datasets/flight12.json')
     
     /*
         .linkOpacity(0.05)
@@ -96,7 +96,7 @@
     
     
     //Attempt to add the health score (based on json file WIP)
-    var item = '.../datasets/newdata/flight12.json';
+    var item = '.../datasets/flight12.json';
     const healthscore = item.health_score;
     
      //Define GUI
@@ -171,14 +171,14 @@
       // gui.__controllers[3].setValue(true);
       // gui.__controllers[4].setValue(true);
       for (i=1;i<100;i++){
-        var webaddress='../datasets/newdata/flight12/f1_${i.toString()}.json'
+        var webaddress='../datasets/flight12/f1_${i.toString()}.json'
         Graph.jsonUrl(webaddress);
       }
     }
     
     function updateThresholdN() {
       for (i=1;i<100;i++){
-        var webaddress='../datasets/newdata/flight12/f1_${i.toString()}.json'
+        var webaddress='../datasets/flight12/f1_${i.toString()}.json'
         Graph.jsonUrl(webaddress);
       }
     }
