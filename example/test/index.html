@@ -96,7 +96,7 @@
     
     
     //Attempt to add the health score (based on json file WIP)
-    var item = '../datasets/newdata/graphdata1.json';
+    var item = '.../datasets/newdata/graphdata1.json';
     const healthscore = item.health_score;
     
      //Define GUI
@@ -166,100 +166,20 @@
     }
          
     function updateThreshold() {
-      
       // gui.__controllers[1].setValue(true);
       // gui.__controllers[2].setValue(true);
       // gui.__controllers[3].setValue(true);
       // gui.__controllers[4].setValue(true);
-    
-    
-      if (settings.disimilarity == 1) {
-      Graph.jsonUrl('../datasets/newdata/graphdata1.json');
-      }
-      else if (settings.disimilarity == 2) {
-      Graph.jsonUrl('../datasets/newdata/graphdata2.json');
-      }
-      else if (settings.disimilarity == 3) {
-      Graph.jsonUrl('../datasets/newdata/graphdata3.json');
-      }
-      else if (settings.disimilarity == 4) {
-      Graph.jsonUrl('../datasets/newdata/graphdata4.json');
-      }
-      else if (settings.disimilarity == 5) {
-        Graph.jsonUrl('../datasets/newdata/graphdata5.json');
-      }
-      else if (settings.disimilarity == 6) {
-        Graph.jsonUrl('../datasets/newdata/graphdata6.json');
-      }
-      else if (settings.disimilarity == 7) {
-        Graph.jsonUrl('../datasets/newdata/graphdata7.json');
-      }
-      else if (settings.disimilarity == 8) {
-        Graph.jsonUrl('../datasets/newdata/graphdata8.json');
-      }
-      else if (settings.disimilarity == 9) {
-        Graph.jsonUrl('../datasets/newdata/graphdata9.json');
-      }
-      else if (settings.disimilarity == 10) {
-        Graph.jsonUrl('../datasets/newdata/graphdata10.json');
-      }
-      else if (settings.disimilarity == 11) {
-        Graph.jsonUrl('../datasets/newdata/graphdata11.json');
-      }
-      else if (settings.disimilarity == 12) {
-        Graph.jsonUrl('../datasets/newdata/graphdata12.json');
-      }
-      else if (settings.disimilarity == 13) {
-        Graph.jsonUrl('../datasets/newdata/graphdata13.json');
-      }
-      else if (settings.disimilarity == 14) {
-        Graph.jsonUrl('../datasets/newdata/graphdata14.json');
+      for (i=0;i<775;i++){
+        var webaddress='../datasets/newdata/f1_${i.toString()}.json'
+        Graph.jsonUrl(webaddress);
       }
     }
     
     function updateThresholdN() {
-
-      if (settings.disimilarity == 1) {
-      Graph.jsonUrl('../datasets/newdata/graphdata1.json');
-      }
-      else if (settings.disimilarity == 2) {
-      Graph.jsonUrl('../datasets/newdata/graphdata2.json');
-      }
-      else if (settings.disimilarity == 3) {
-      Graph.jsonUrl('../datasets/newdata/graphdata3.json');
-      }
-      else if (settings.disimilarity == 4) {
-      Graph.jsonUrl('../datasets/newdata/graphdata4.json');
-      }
-      else if (settings.disimilarity == 5) {
-        Graph.jsonUrl('../datasets/newdata/graphdata5.json');
-      }
-      else if (settings.disimilarity == 6) {
-        Graph.jsonUrl('../datasets/newdata/graphdata6.json');
-      }
-      else if (settings.disimilarity == 7) {
-        Graph.jsonUrl('../datasets/newdata/graphdata7.json');
-      }
-      else if (settings.disimilarity == 8) {
-        Graph.jsonUrl('../datasets/newdata/graphdata8.json');
-      }
-      else if (settings.disimilarity == 9) {
-        Graph.jsonUrl('../datasets/newdata/graphdata9.json');
-      }
-      else if (settings.disimilarity == 10) {
-        Graph.jsonUrl('../datasets/newdata/graphdata10.json');
-      }
-      else if (settings.disimilarity == 11) {
-        Graph.jsonUrl('../datasets/newdata/graphdata11.json');
-      }
-      else if (settings.disimilarity == 12) {
-        Graph.jsonUrl('../datasets/newdata/graphdata12.json');
-      }
-      else if (settings.disimilarity == 13) {
-        Graph.jsonUrl('../datasets/newdata/graphdata13.json');
-      }
-      else if (settings.disimilarity == 14) {
-        Graph.jsonUrl('../datasets/newdata/graphdata14.json');
+      for (i=0;i<775;i++){
+        var webaddress='../datasets/newdata/f1_${i.toString()}.json'
+        Graph.jsonUrl(webaddress);
       }
     }
     
