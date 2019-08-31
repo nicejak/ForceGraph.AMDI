@@ -1,0 +1,16 @@
+{
+"nodes": [
+{"id": "0", "group": 0}, 
+{"id": "1", "group": 0}, 
+{"id": "2", "group": 0}
+], 
+"links": [
+{"source": "0", "target": "1", "value": 0.1352195982590331}, 
+{"source": "0", "target": "2", "value": 0.23876860872863}, 
+{"source": "1", "target": "0", "value": 0.1352195982590331}, 
+{"source": "1", "target": "2", "value": 0.1472775132901223}, 
+{"source": "2", "target": "0", "value": 0.23876860872863}, 
+{"source": "2", "target": "1", "value": 0.1472775132901223}
+], 
+"health_score": 0.5983671536171351
+}
