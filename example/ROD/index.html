@@ -21,9 +21,9 @@
       (elem)
         .jsonUrl('../datasets/flight1/DJI_0001.json')
         .linkOpacity(0.05)
-        .linkWidth(link => link === highlightLink ? 4 : 1)
-        .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
-        .linkDirectionalParticleWidth(4)
+        // .linkWidth(link => link === highlightLink ? 4 : 1)
+        // .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
+        // .linkDirectionalParticleWidth(4)
 		
 		// Here is where Alan is making changes 8.30.19
 		.linkThreeObject(link => {
@@ -46,8 +46,8 @@
 			return lineObj;
 		});
 		
-		.linkPositionUpdate((obj,{start,end}) => {
-			const middlePos = Object.assign(...['x','y','z'].map(c => ({
+		.linkPositionUpdate((obj, {start, end}) => {
+			const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
 				[c]: start[c] + (end[c] - start[c]) / 2 // Calculating middle point
 			})))
 			
@@ -56,7 +56,7 @@
 			// Position link text
 			Object.assign(textSprite.position, middlePos);
 		});
-		// End of changes
+		//
 		
         .nodeLabel('id')
         .nodeAutoColorBy('group')
