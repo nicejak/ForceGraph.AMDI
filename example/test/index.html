@@ -27,7 +27,7 @@
 
     const Graph = ForceGraph3D()
       (elem)
-        .jsonUrl('../datasets/newdata/graphdata1.json')
+        .jsonUrl('../datasets/newdata/flight12.json')
     
     /*
         .linkOpacity(0.05)
@@ -96,7 +96,7 @@
     
     
     //Attempt to add the health score (based on json file WIP)
-    var item = '.../datasets/newdata/graphdata1.json';
+    var item = '.../datasets/newdata/flight12.json';
     const healthscore = item.health_score;
     
      //Define GUI
@@ -112,7 +112,7 @@
     const settings = new Settings();
     const gui = new dat.GUI();
     
-    const controllerOne = gui.add(settings, 'disimilarity', 1, 14, 1);
+    const controllerOne = gui.add(settings, 'disimilarity', 1, 100, 1);
     const controllerTwo = gui.add(settings, 'HealthScore');
     // const controllerThree = gui.add(settings, 'plant');
     // const controllerFour = gui.add(settings, 'fungi');
@@ -170,15 +170,15 @@
       // gui.__controllers[2].setValue(true);
       // gui.__controllers[3].setValue(true);
       // gui.__controllers[4].setValue(true);
-      for (i=1;i<650;i++){
-        var webaddress='../datasets/newdata/f1_${i.toString()}.json'
+      for (i=1;i<100;i++){
+        var webaddress='../datasets/newdata/flight12/f1_${i.toString()}.json'
         Graph.jsonUrl(webaddress);
       }
     }
     
     function updateThresholdN() {
-      for (i=1;i<650;i++){
-        var webaddress='../datasets/newdata/f1_${i.toString()}.json'
+      for (i=1;i<100;i++){
+        var webaddress='../datasets/newdata/flight12/f1_${i.toString()}.json'
         Graph.jsonUrl(webaddress);
       }
     }
