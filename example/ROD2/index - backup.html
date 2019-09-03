@@ -21,43 +21,9 @@
       (elem)
         .jsonUrl('../datasets/flight1/DJI_0001.json')
         .linkOpacity(0.05)
-        // .linkWidth(link => link === highlightLink ? 4 : 1)
-        // .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
-        // .linkDirectionalParticleWidth(4)
-		
-		// Here is where Alan is making changes 8.30.19
-		.linkThreeObject(link => {
-			// Create line object
-			const lineObj = new THREE.line(
-				new THREE.BufferGeometry(),
-				new THREE.MeshLambertMaterial({
-					color: '#f0f0f0',
-					transparent: true,
-					opacity: 0.2
-				})
-			);
-			
-			// Add text sprite as a child
-			const sprite = new SpriteText(`${link.value}`);
-			sprite.color = 'lightgrey';
-			sprite.textHeight = 1.5;
-			lineObj.add(sprite);
-			
-			return lineObj;
-		});
-		
-		.linkPositionUpdate((obj, {start, end}) => {
-			const middlePos = Object.assign(...['x', 'y', 'z'].map(c => ({
-				[c]: start[c] + (end[c] - start[c]) / 2 // Calculating middle point
-			})))
-			
-			const textSprite = obj.children[0];
-			
-			// Position link text
-			Object.assign(textSprite.position, middlePos);
-		});
-		//
-		
+        .linkWidth(link => link === highlightLink ? 4 : 1)
+        .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
+        .linkDirectionalParticleWidth(4)
         .nodeLabel('id')
         .nodeAutoColorBy('group')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
@@ -73,7 +39,6 @@
 				);
 			}
 		)
-	/*
 		.onLinkHover(link => {
 			// no state change
 			if (highlightLink === link) return;
@@ -81,11 +46,11 @@
 			highlightNodes = link ? [link.source, link.target] : [];
 			updateGeometries();
         });
-		
+    
     function updateGeometries() {
 		Graph.nodeRelSize(4); // trigger update of 3d objects in scene
     }
-	*/
+	
 	/*
     const linkForce = Graph
 		.d3Force('link')
