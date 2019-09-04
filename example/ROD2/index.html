@@ -98,20 +98,28 @@
 			try {
 			Graph.jsonUrl('../datasets/flight2/DJI_000' + settings.DJI + '.json');
 			}
+			catch (SyntaxError) {
+			}
 		}
 		else if (settings.DJI < 100) {
 			try {
 			Graph.jsonUrl('../datasets/flight2/DJI_00' + settings.DJI + '.json');
+			}
+			catch (SyntaxError) {
 			}
 		}
 		else if (settings.DJI < 1000) {
 			try {
 			Graph.jsonUrl('../datasets/flight2/DJI_0' + settings.DJI + '.json');
 			}
+			catch (SyntaxError) {
+			}
 		}
 		else {
 			try {
 			Graph.jsonUrl('..datasets/flight2/DJI_' + settings.DJI + '.json');
+			}
+			catch (SyntaxError) {
 			}
 		}
 	}
