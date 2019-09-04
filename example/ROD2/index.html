@@ -92,9 +92,16 @@
 	else {
 		Graph.jsonUrl('..datasets/flight2/DJI_' + settings.DJI + '.json');
 	};
-         
+    
+    function UrlExists(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status!=404;
+    }
+	    
     function updateThreshold() {
-		if (settings.DJI < 10 && Graph.jsonUrl('../datasets/flight2/DJI_000' + settings.DJI + '.json').exists()) {
+		if (settings.DJI < 10 && UrlExists('../datasets/flight2/DJI_000' + settings.DJI + '.json')) {
 			Graph.jsonUrl('../datasets/flight2/DJI_000' + settings.DJI + '.json');
 		}
 		else if (settings.DJI < 100) {
