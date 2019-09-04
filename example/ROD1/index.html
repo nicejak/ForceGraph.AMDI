@@ -18,13 +18,14 @@
 	
     const Graph = ForceGraph3D()
       (elem)
-		// .jsonUrl('../datasets/flight1/DJI_0001.json')
-        .linkOpacity(0.15)
-        .linkWidth(link => link === highlightLink ? 4 : 3)
+		// .jsonUrl('../datasets/flight1/DJI_0510.json')
+        .linkOpacity(0.15) //link opacity
+        .linkWidth(link => link === highlightLink ? 4 : /* link width */ 2)
         .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
         .linkDirectionalParticleWidth(4)
         .nodeLabel('id')
-        .nodeAutoColorBy('group')
+		.nodeColor(node => '#7FCC71')
+		.linkColor(link => '#E86666')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
 			node => {
