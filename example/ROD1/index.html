@@ -69,7 +69,7 @@
 	const settings = new Settings();
     const gui = new dat.GUI();
     
-    const controllerOne = gui.add(settings, 'disimilarity').min(1).step(1).max(999);
+    const controllerOne = gui.add(settings, 'disimilarity').step(1); //.min(1).step(1).max(999);
     // const controllerTwo = gui.add(settings, 'animal');
     // const controllerThree = gui.add(settings, 'plant');
     // const controllerFour = gui.add(settings, 'fungi');

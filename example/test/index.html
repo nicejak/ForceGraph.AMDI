@@ -1,7 +1,7 @@
 <head>
     <script src="//unpkg.com/3d-force-graph"></script>
-	<script type="text/javascript" src="dat.gui.js"></script>
-    <script type="text/javascript">
+	<script src="//unpkg.com/dat.gui"></script>
+	
 	<style>
         body { margin: 0; }
     </style>
@@ -11,14 +11,6 @@
     <div id="3d-graph"></div>
 
     <script>
-		
-		
-		var flightData = function() {
-			this.url = url;
-			this.nodes = nodes;
-			this.links = links;
-		};
-        
         const elem = document.getElementById("3d-graph");
         
         const Graph = ForceGraph3D()
@@ -26,17 +18,23 @@
                 .enableNodeDrag(false)
                 .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null);
 		
-		// GUI
-		var flightDataGraph = new flightData();
-		var gui = new dat.GUI();
-		gui.add(flightDataGraph, 
+			// Define GUI
+		var dji = 310;
 		
-		graph.onChange(
-			Graph.jsonUrl(
-				'../datasets/flight1/DJI_0002.json'
-			)
+		const Settings = function() {
+			this.dji = dji;
+		};
+		
+		const settings = new Settings();
+		const gui = new dat.GUI();
+		
+		const controllerOne = gui.add(settings, 'dji').step(1);
+		
+		var djiUrl = '../datasets/flight1/DJI_0' + dji.toString() + '.json';
+		
+		controllerOne.onChange(
+			Graph.jsonUrl(djiUrl)
 		);
-		
 		
 		// Function list
         function removeNode(node) {
@@ -46,9 +44,5 @@
             nodes.forEach((n, idx) => { n.id = idx; }); // Reset node ids to array index
             Graph.graphData({ nodes, links });
         }
-		
-		function createPath(graphNumber) { 
-			var path = new URL('../datasets/flight1/', graphNumber);
-		}
     </script>
 </body>
