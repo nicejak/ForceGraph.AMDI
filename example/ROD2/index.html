@@ -107,13 +107,19 @@
 			}
 		}
 		else if (settings.DJI < 100) {
-			Graph.jsonUrl('../datasets/flight2/DJI_00' + settings.DJI + '.json');
+			if (UrlExists('../datasets/flight2/DJI_00' + settings.DJI + '.json')) {
+				Graph.jsonUrl('../datasets/flight2/DJI_00' + settings.DJI + '.json');
+			}
 		}
 		else if (settings.DJI < 1000) {
-			Graph.jsonUrl('../datasets/flight2/DJI_0' + settings.DJI + '.json');
+			if (UrlExists('../datasets/flight2/DJI_0' + settings.DJI + '.json')) {
+				Graph.jsonUrl('../datasets/flight2/DJI_0' + settings.DJI + '.json');
+			}
 		}
 		else {
-			Graph.jsonUrl('..datasets/flight2/DJI_' + settings.DJI + '.json');
+			if (UrlExists('../datasets/flight2/DJI_' + settings.DJI + '.json')) {
+				Graph.jsonUrl('..datasets/flight2/DJI_' + settings.DJI + '.json');
+			}
 		}
 	}
     </script>
