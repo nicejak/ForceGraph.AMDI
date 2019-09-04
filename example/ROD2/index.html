@@ -101,8 +101,10 @@
     }
 	    
     function updateThreshold() {
-		if (settings.DJI < 10 && UrlExists('../datasets/flight2/DJI_000' + settings.DJI + '.json')) {
-			Graph.jsonUrl('../datasets/flight2/DJI_000' + settings.DJI + '.json');
+		if (settings.DJI < 10) {
+			if (UrlExists('../datasets/flight2/DJI_000' + settings.DJI + '.json')) {
+				Graph.jsonUrl('../datasets/flight2/DJI_000' + settings.DJI + '.json');
+			}
 		}
 		else if (settings.DJI < 100) {
 			Graph.jsonUrl('../datasets/flight2/DJI_00' + settings.DJI + '.json');
