@@ -1,45 +1,54 @@
 <head>
-	<script src="//unpkg.com/3d-force-graph"></script>
-
+    <script src="//unpkg.com/3d-force-graph"></script>
+	<script type="text/javascript" src="dat.gui.js"></script>
+    <script type="text/javascript">
 	<style>
-		body { margin: 0; }
-	</style>
+        body { margin: 0; }
+    </style>
 </head>
 
 <body>
-	<div id="3d-graph"></div>
+    <div id="3d-graph"></div>
 
-	<script>
-		const initData = {
-			nodes: [ {id: 0 } ],
-			links: []
+    <script>
+		
+		
+		var flightData = function() {
+			this.url = url;
+			this.nodes = nodes;
+			this.links = links;
 		};
         
-		const elem = document.getElementById("3d-graph");
+        const elem = document.getElementById("3d-graph");
         
-		const Graph = ForceGraph3D()(elem)
-			.enableNodeDrag(false)
-			.onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
-			.onNodeClick(removeNode)
-			.graphData(initData);
-
-		setInterval(() => {
-			const {nodes, links} = Graph.graphData();
-			const id = .nodeLabel('id');
-			Graph.graphData({
-				nodes: [...nodes, { id }],
-				links: [...links, { source: id, target: Math.round(Math.random() * (id-1)) }]
-			});
-		}, 1000);
-
-		//
-
-		function removeNode(node) {
+        const Graph = ForceGraph3D()
+			(elem)
+                .enableNodeDrag(false)
+                .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null);
+		
+		// GUI
+		var flightDataGraph = new flightData();
+		var gui = new dat.GUI();
+		gui.add(flightDataGraph, 
+		
+		graph.onChange(
+			Graph.jsonUrl(
+				'../datasets/flight1/DJI_0002.json'
+			)
+		);
+		
+		
+		// Function list
+        function removeNode(node) {
             let { nodes, links } = Graph.graphData();
             links = links.filter(l => l.source !== node && l.target !== node); // Remove links attached to node
             nodes.splice(node.id, 1); // Remove node
             nodes.forEach((n, idx) => { n.id = idx; }); // Reset node ids to array index
             Graph.graphData({ nodes, links });
         }
+		
+		function createPath(graphNumber) { 
+			var path = new URL('../datasets/flight1/', graphNumber);
+		}
     </script>
 </body>
