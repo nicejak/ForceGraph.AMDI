@@ -1,24 +1,26 @@
 <head>
-	<style> body { margin: 0; } </style>
-  
+    <script src="//unpkg.com/3d-force-graph"></script>
 	<script src="//unpkg.com/dat.gui"></script>
-	<script src="//unpkg.com/3d-force-graph"></script>
 	<script src="//unpkg.com/three"></script>
 	<script src="//unpkg.com/three-spritetext"></script>
-	<!--<script src="../../dist/3d-force-graph.js"></script>-->
+	
+	<style>
+        body { margin: 0; }
+    </style>
+	
 </head>
 
 <body>
-	<div id="3d-graph"></div>
+    <div id="3d-graph"></div>
 
-	<script>
+    <script>
     const elem = document.getElementById('3d-graph');
     
     let highlightLink = null;
 	
     const Graph = ForceGraph3D()
       (elem)
-		// .jsonUrl('../datasets/flight1/DJI_0510.json')
+		// .jsonUrl('../datasets/flight1/DJI_0001.json')
         .linkOpacity(0.15) //link opacity
         .linkWidth(link => link === highlightLink ? 4 : /* link width */ 2)
         .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
@@ -57,62 +59,16 @@
 		.distance(link => (link.value * 100)); // scales the link distances from value
     */
 	
-    //Define GUI
+    // Define GUI
     const Settings = function() {
-		this.disimilarity = 1;
-		// this.animal = true;
-		// this.plant = true;
-		// this.fungi = true;
-		// this.other = true;
-	// document.write("img src=ʻ../test/forcegraph key.pngʻ>");
+		this.DJI = 1;
     };
     
 	const settings = new Settings();
     const gui = new dat.GUI();
     
-    const controllerOne = gui.add(settings, 'disimilarity').step(1); //.min(1).step(1).max(999);
-    // const controllerTwo = gui.add(settings, 'animal');
-    // const controllerThree = gui.add(settings, 'plant');
-    // const controllerFour = gui.add(settings, 'fungi');
-    // const controllerFive = gui.add(settings, 'other');
-  
+    const controllerOne = gui.add(settings, 'DJI').min(1).step(1);
 	controllerOne.onChange(updateThreshold);
-	// controllerTwo.onChange(presentNodes);
-    // controllerThree.onChange(presentNodes);
-    // controllerFour.onChange(presentNodes);
-    // controllerFive.onChange(presentNodes);
-    
-    
-    function presentNodes () {
-		// updateThresholdN();
-		recheckFalseNodes();
-	}
-    
-	function recheckFalseNodes() {
-		let {nodes, links} = Graph.graphData();
-		/*
-		if (settings.animal == false) {
-			for (i = 0; i < 5; i++) {
-				nodes.forEach ((n, idx) => {if (n.group == 1) {removeNode (n)}});
-			}
-		}
-		if (settings.plant == false) {
-			for (i = 0; i < 5; i++) {
-				nodes.forEach ((n, idx) => {if (n.group == 0) {removeNode (n)}});
-			}
-		}
-		if (settings.fungi == false) {
-			for (i = 0; i < 5; i++) {
-				nodes.forEach ((n, idx) => {if (n.group == 2) {removeNode (n)}});
-			}
-		}
-		if (settings.other == false) {
-			for (i = 0; i < 5; i++) {
-				nodes.forEach ((n, idx) => {if (n.group == 3) {removeNode (n)}});
-			}
-		}
-		*/
-    }
     
     function removeNode(node) {
 		let {nodes, links} = Graph.graphData();
@@ -121,228 +77,35 @@
 		nodes.forEach((n, idx) => {n.id = idx;}); // Reset node ids to array index
 		Graph.graphData({nodes, links });
     }
+	
+	// Runs initial DJI
+	
+	if (settings.DJI < 10) {
+		Graph.jsonUrl('../datasets/flight1/DJI_000' + settings.DJI + '.json');
+	}
+	else if (settings.DJI < 100) {
+		Graph.jsonUrl('../datasets/flight1/DJI_00' + settings.DJI + '.json');
+	}
+	else if (settings.DJI < 1000) {
+		Graph.jsonUrl('../datasets/flight1/DJI_0' + settings.DJI + '.json');
+	}
+	else {
+		Graph.jsonUrl('..datasets/flight1/DJI_' + settings.DJI + '.json');
+	};
          
     function updateThreshold() {
-      
-		// gui.__controllers[1].setValue(true);
-		// gui.__controllers[2].setValue(true);
-		// gui.__controllers[3].setValue(true);
-		// gui.__controllers[4].setValue(true);
-		
-		if (settings.disimilarity == 1) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0001.json');
+		if (settings.DJI < 10) {
+			Graph.jsonUrl('../datasets/flight1/DJI_000' + settings.DJI + '.json');
 		}
-	    	else if (settings.disimilarity == 160) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0160.json');
+		else if (settings.DJI < 100) {
+			Graph.jsonUrl('../datasets/flight1/DJI_00' + settings.DJI + '.json');
 		}
-	    	else if (settings.disimilarity == 310) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0310.json');
+		else if (settings.DJI < 1000) {
+			Graph.jsonUrl('../datasets/flight1/DJI_0' + settings.DJI + '.json');
 		}
-	    	else if (settings.disimilarity == 364) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0364.json');
+		else {
+			Graph.jsonUrl('..datasets/flight1/DJI_' + settings.DJI + '.json');
 		}
-		else if (settings.disimilarity == 413) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0413.json');
-		}
-	 	else if (settings.disimilarity == 459) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0459.json');
-		}
-	   	else if (settings.disimilarity == 466) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0466.json');
-		}
-	    	else if (settings.disimilarity == 476) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0476.json');
-		}
-	   	else if (settings.disimilarity == 505) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0505.json');
-		}
-	    	else if (settings.disimilarity == 510) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0510.json');
-		}
-	    	else if (settings.disimilarity == 549) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0549.json');
-		}
-	   	else if (settings.disimilarity == 596) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0596.json');
-		}
-		else if (settings.disimilarity == 608) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0608.json');
-		}
-	    	else if (settings.disimilarity == 727) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0727.json');
-		}
-		else if (settings.disimilarity == 734) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0734.json');
-		}
-	   	else if (settings.disimilarity == 749) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0749.json');
-		}
-	    	else if (settings.disimilarity == 750) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0750.json');
-		}
-		else if (settings.disimilarity == 776) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0776.json');
-		}
-	    	else if (settings.disimilarity == 806) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0806.json');
-		}
-	    	else if (settings.disimilarity == 815) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0815.json');
-		}
-	    	else if (settings.disimilarity == 821) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0821.json');
-		}
-		else if (settings.disimilarity == 835) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0835.json');
-		}
-	    	else if (settings.disimilarity == 841) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0841.json');
-		}
-	   	else if (settings.disimilarity == 846) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0846.json');
-		}
-	    	else if (settings.disimilarity == 848) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0848.json');
-		}
-		else if (settings.disimilarity == 861) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0861.json');
-		}
-	   	else if (settings.disimilarity == 872) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0872.json');
-		}
-	   	else if (settings.disimilarity == 892) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0892.json');
-		}
-	    	else if (settings.disimilarity == 907) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0907.json');
-		}
-	    	else if (settings.disimilarity == 918) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0918.json');
-		}
-	    	else if (settings.disimilarity == 921) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0921.json');
-		}
-	    	else if (settings.disimilarity == 933) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0933.json');
-		}
-	    	else if (settings.disimilarity == 944) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0944.json');
-		}
-	    	else if (settings.disimilarity == 964) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0964.json');
-		}
-	    	else if (settings.disimilarity == 993) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0993.json');
-		}
-    }
-    
-    function updateThresholdN() {
-		if (settings.disimilarity == 1) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0001.json');
-		}
-	    	else if (settings.disimilarity == 160) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0160.json');
-		}
-	    	else if (settings.disimilarity == 310) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0310.json');
-		}
-	    	else if (settings.disimilarity == 364) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0364.json');
-		}
-		else if (settings.disimilarity == 413) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0413.json');
-		}
-	 	else if (settings.disimilarity == 459) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0459.json');
-		}
-	   	else if (settings.disimilarity == 466) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0466.json');
-		}
-	    	else if (settings.disimilarity == 476) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0476.json');
-		}
-	   	else if (settings.disimilarity == 505) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0505.json');
-		}
-	    	else if (settings.disimilarity == 510) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0510.json');
-		}
-	    	else if (settings.disimilarity == 549) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0549.json');
-		}
-	   	else if (settings.disimilarity == 596) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0596.json');
-		}
-		else if (settings.disimilarity == 608) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0608.json');
-		}
-	    	else if (settings.disimilarity == 727) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0727.json');
-		}
-		else if (settings.disimilarity == 734) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0734.json');
-		}
-	   	else if (settings.disimilarity == 749) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0749.json');
-		}
-	    	else if (settings.disimilarity == 750) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0750.json');
-		}
-		else if (settings.disimilarity == 776) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0776.json');
-		}
-	    	else if (settings.disimilarity == 806) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0806.json');
-		}
-	    	else if (settings.disimilarity == 815) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0815.json');
-		}
-	    	else if (settings.disimilarity == 821) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0821.json');
-		}
-		else if (settings.disimilarity == 835) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0835.json');
-		}
-	    	else if (settings.disimilarity == 841) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0841.json');
-		}
-	   	else if (settings.disimilarity == 846) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0846.json');
-		}
-	    	else if (settings.disimilarity == 848) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0848.json');
-		}
-		else if (settings.disimilarity == 861) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0861.json');
-		}
-	   	else if (settings.disimilarity == 872) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0872.json');
-		}
-	   	else if (settings.disimilarity == 892) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0892.json');
-		}
-	    	else if (settings.disimilarity == 907) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0907.json');
-		}
-	    	else if (settings.disimilarity == 918) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0918.json');
-		}
-	    	else if (settings.disimilarity == 921) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0921.json');
-		}
-	    	else if (settings.disimilarity == 933) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0933.json');
-		}
-	    	else if (settings.disimilarity == 944) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0944.json');
-		}
-	    	else if (settings.disimilarity == 964) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0964.json');
-		}
-	    	else if (settings.disimilarity == 993) {
-			Graph.jsonUrl('../datasets/flight1/DJI_0993.json');
-		}
-    }
-    
-	</script>
+	}
+    </script>
 </body>
