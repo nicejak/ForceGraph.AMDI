@@ -12,7 +12,6 @@
 
 <body>
     <div id="3d-graph"></div>
-
     <script>
     const elem = document.getElementById('3d-graph');
     
@@ -53,14 +52,14 @@
 		Graph.nodeRelSize(4); // trigger update of 3d objects in scene
     }
 	
-	/*
+	
     const linkForce = Graph
 		.d3Force('link')
 		.distance(link => (link.value * 100)); // scales the link distances from value
-    */
+    
 	
     // Define GUI
-    const Settings = function() {
+	const Settings = function() {
 		this.DJI = 62;
     };
     
@@ -92,14 +91,26 @@
 	else {
 		Graph.jsonUrl('..datasets/flight2/DJI_' + settings.DJI + '.json');
 	};
-    
-    function UrlExists(url) {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    return http.status!=404;
-    }
-	    
+	
+	function UrlExists(url) {
+		var http = new XMLHttpRequest();
+		http.open('HEAD', url, false);
+		http.send();
+		if (http.status != 404) {
+			Graph.graphData({
+				nodes: [{id: 0}],
+				links: []
+			})
+		}
+		else {
+			Graph.graphData({
+				nodes: [],
+				links: []
+			});
+		}
+		return http.status!=404;
+	}
+	
     function updateThreshold() {
 		if (settings.DJI < 10) {
 			if (UrlExists('../datasets/flight2/DJI_000' + settings.DJI + '.json')) {
