@@ -26,8 +26,9 @@
         .linkDirectionalParticles(link => link === highlightLink ? 4 : 0)
         .linkDirectionalParticleWidth(4)
         .nodeLabel('id')
-		.nodeColor(node => .nodeColor(node => (node.group == 0) ? '#000000' : (node.group == 1) ? '#808080' : (node.group == 2) ? '#C0C0C0' : (node.group == 3) ? '#E0E0E0' : (node.group == 4) ? '#F0F0F0' : '#FFFFFF'))
-		.linkColor(link => '#E86666')
+		//.nodeColor(node => .nodeColor(node => (node.group == 0) ? '#000000' : (node.group == 1) ? '#808080' : (node.group == 2) ? '#C0C0C0' : (node.group == 3) ? '#E0E0E0' : (node.group == 4) ? '#F0F0F0' : '#FFFFFF'))
+    		.nodeColor(node => '#EA6262')
+		.linkColor(link => '#7A5E05')
         .onNodeHover(node => elem.style.cursor = node ? 'pointer' : null)
         .onNodeClick(
 			node => {
