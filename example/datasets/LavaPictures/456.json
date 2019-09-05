@@ -1,0 +1,30 @@
+{
+"nodes": [
+{"id": "0", "group": 0}, 
+{"id": "1", "group": 1},
+{"id": "2", "group": 2},
+{"id": "3", "group": 3},
+{"id": "4", "group": 4},
+{"id": "5", "group": 5}
+], 
+"links": [
+{"source": "0", "target": "1", "value": 14900},
+{"source": "0", "target": "2", "value": 1},
+{"source": "1", "target": "0", "value": 14900},
+{"source": "1", "target": "2", "value": 1133},
+{"source": "1", "target": "3", "value": 7},
+{"source": "2", "target": "0", "value": 1},
+{"source": "2", "target": "1", "value": 1133},
+{"source": "2", "target": "3", "value": 234},
+{"source": "2", "target": "4", "value": 3},
+{"source": "3", "target": "1", "value": 7},
+{"source": "3", "target": "2", "value": 234},
+{"source": "3", "target": "4", "value": 61},
+{"source": "3", "target": "5", "value": 5},
+{"source": "4", "target": "2", "value": 3},
+{"source": "4", "target": "3", "value": 61},
+{"source": "4", "target": "5", "value": 4},
+{"source": "5", "target": "3", "value": 5},
+{"source": "5", "target": "4", "value": 4}
+]
+}
